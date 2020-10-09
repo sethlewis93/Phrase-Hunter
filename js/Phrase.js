@@ -9,7 +9,7 @@
     }
 
     addPhrasetoDisplay() {
-        console.log('hi')
+        console.log('hi');
         // const phraseDiv = document.getElementById('phrase');
         // let parsedPhrase = this.phrase.split('');
         // // create new li elements equaling phrase characters and append to dom
