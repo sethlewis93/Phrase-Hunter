@@ -15,11 +15,11 @@
     */
 
     createPhrases() {
-        const phrases = [   new Phrase('Uno'), 
-                            new Phrase('Dos'), 
-                            new Phrase('Tres'), 
-                            new Phrase('Quatro'),
-                            new Phrase('Cinco')];
+        const phrases = [   new Phrase('Stevie W'), 
+                            new Phrase('Jimi H'), 
+                            new Phrase('Sam C'), 
+                            new Phrase('Kendrick L'),
+                            new Phrase('Ahmad J')];
         return phrases;
     }
 

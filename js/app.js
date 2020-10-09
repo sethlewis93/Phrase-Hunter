@@ -21,9 +21,7 @@
 //     logPhrase(game.getRandomPhrase());
 //     logPhrase(game.getRandomPhrase());
 
-const game = new Game();
-const randomPhrase = game.getRandomPhrase();
-console.log(randomPhrase);
-const phrase = new Phrase(randomPhrase.phrase);
-// type error occurs here
-phrase.addPhraseToDisplay();
+// const game = new Game();
+// const randomPhrase = game.getRandomPhrase();
+// const phrase = new Phrase(randomPhrase.phrase);
+// phrase.addPhraseToDisplay();
