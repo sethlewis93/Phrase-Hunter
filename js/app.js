@@ -38,15 +38,9 @@ document.getElementById('btn__reset').addEventListener('click', () => {
 
 });
 
+let phrase;
+
 document.getElementById('qwerty').addEventListener('click', (e) => {
-    const clicked = e.target;
-    if (clicked.innerHTML === 'k') {
-        console.log('Yes')
-    } else {
-        // remove life from board (right now it removes 3 the first click!)
-        let lives = document.getElementsByClassName('tries');
-        for(let i = 0; i < lives.length; i++) {
-            lives[i].remove();
-        }
-    }    
+    const clicked = e.target.innerHTML;
+    game.handleInteraction(clicked);
 })
