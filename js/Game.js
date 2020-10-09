@@ -5,7 +5,7 @@
  class Game {
      constructor() {
         this.missed = 0;
-        this.phrases = [];
+        this.phrases = this.createPhrases();
         this.activePhrase = null;
     }
 
@@ -15,8 +15,23 @@
     */
 
     createPhrases() {
-        return this.phrases;
+        const phrases = [   new Phrase('Uno'), 
+                            new Phrase('Dos'), 
+                            new Phrase('Tres'), 
+                            new Phrase('Quatro'),
+                            new Phrase('Cinco')];
+        return phrases;
     }
+
+    /**
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
+    getRandomPhrase() {
+        let randPhrase = Math.floor(Math.random() * this.phrases.length);
+        return this.phrases[randPhrase];
+        
+    };
 
  }
 
