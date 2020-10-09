@@ -25,5 +25,5 @@ const game = new Game();
 const randomPhrase = game.getRandomPhrase();
 console.log(randomPhrase);
 const phrase = new Phrase(randomPhrase.phrase);
-// type error here
+// type error occurs here
 phrase.addPhraseToDisplay();
