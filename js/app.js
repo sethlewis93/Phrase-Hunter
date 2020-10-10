@@ -40,3 +40,7 @@ document.getElementById("btn__reset").addEventListener("click", () => {
     phrase.showMatchedLetter(clicked.textContent);
   });
 });
+
+/*
+https://github.com/MollyZalman/Unit-4-OOP-Game/blob/master/js/Phrase.js
+*/
