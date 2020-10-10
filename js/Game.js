@@ -44,19 +44,55 @@ class Game {
     this.activePhrase.addPhraseToDisplay();
   }
 
+  handleInteraction() {}
+
   /**
     * Checks for winning move
     * @return {boolean} True if game has been won, false if game wasn't
     won
     */
   checkForWin() {
-    let hiddenLetters = $(".hide");
-    hiddenLetters.length === 0 ? true : false;
+    let hiddenLetters = document.getElementsByClassName("hide");
+    if (hiddenLetters.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
+
   /**
    * Increases the value of the missed property
    * Removes a life from the scoreboard
    * Checks if player has remaining lives and ends game if player is out
    */
-  removeLife() {}
+  removeLife() {
+    this.missed += 1;
+    let lives = document.querySelectorAll('img [src="images/liveHeart.png"]');
+    lives.src = "images/lostHeart.png";
+    if (this.missed === 5) {
+      this.gameOver(false);
+    }
+  }
+
+  /**
+   * Displays game over message
+   * @param {boolean} gameWon - Whether or not the user won the game
+   */
+
+  /**
+   * Displays game over message
+   * @param {boolean} gameWon - Whether or not the user won the game
+   */
+  gameOver(gameWon) {
+    let gameOverMessage = (document.getElementById(
+      "game-over-message"
+    ).style.display = "block");
+    if (gameWon) {
+      gameOverMessage.innerHTML = `Way to go! You won the game!`;
+      document.getElementById("overlay").className = "Won";
+    } else {
+      gameOverMessage.innerHTML = `Bummer! You did not guess correctly`;
+      document.getElementById("overlay").className = "Lost";
+    }
+  }
 }

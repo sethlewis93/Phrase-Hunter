@@ -36,8 +36,7 @@ document.getElementById("btn__reset").addEventListener("click", () => {
   console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
   let phrase = new Phrase(game.activePhrase.phrase);
   document.getElementById("qwerty").addEventListener("click", (e) => {
-    const clicked = e.target.innerHTML;
-    console.log(clicked);
+    const clicked = e.target;
     phrase.showMatchedLetter(clicked);
   });
 });

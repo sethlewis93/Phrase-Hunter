@@ -23,7 +23,9 @@ class Phrase {
    */
 
   checkLetter(letter) {
-    this.phrase.includes(letter) ? true : false;
+    if (this.phrase.includes(letter)) {
+      return true;
+    }
   }
 
   /**
@@ -31,15 +33,13 @@ class Phrase {
    * @param (string) letter - Letter to display
    */
   showMatchedLetter(guess) {
-    if (this.checkLetter) {
-      // $ syntax inspired by https://www.thoughtco.com/and-in-javascript-2037515
-      let matchingLetter = document.querySelectorAll("letter");
-      for (let i = 0; i < matchingLetter.length; i++) {
-        if (matchingLetter[i].innerHTML === guess) {
-          matchingLetter.classList.remove("hide");
-          matchingLetter.classList.add("show");
-          console.log("method works");
-        }
+    let matchingLetter = document.getElementsByClassName("letter");
+    for (let i = 0; i < matchingLetter.length; i++) {
+      // if there are two of the same letter, the second one does not "show"
+      if (matchingLetter[i].textContent == guess) {
+        matchingLetter[i].classList.remove("hide");
+        matchingLetter[i].classList.add("show");
+        return true;
       }
     }
   }
