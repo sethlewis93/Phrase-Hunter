@@ -25,6 +25,8 @@ class Phrase {
   checkLetter(letter) {
     if (this.phrase.includes(letter)) {
       return true;
+    } else {
+      return false;
     }
   }
 
@@ -32,15 +34,12 @@ class Phrase {
    * Displays passed letter on screen after a match is found
    * @param (string) letter - Letter to display
    */
-  showMatchedLetter(guess) {
-    let matchingLetter = document.getElementsByClassName("letter");
+  showMatchedLetter(letter) {
+    let matchingLetter = document.getElementsByClassName(letter);
+    // if there are two of the same letter, the second one does not "show"
     for (let i = 0; i < matchingLetter.length; i++) {
-      // if there are two of the same letter, the second one does not "show"
-      if (matchingLetter[i].textContent == guess) {
-        matchingLetter[i].classList.remove("hide");
-        matchingLetter[i].classList.add("show");
-        return true;
-      }
+      matchingLetter[i].classList.remove("hide");
+      matchingLetter[i].classList.add("show");
     }
   }
 }

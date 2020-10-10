@@ -37,6 +37,6 @@ document.getElementById("btn__reset").addEventListener("click", () => {
   let phrase = new Phrase(game.activePhrase.phrase);
   document.getElementById("qwerty").addEventListener("click", (e) => {
     const clicked = e.target;
-    phrase.showMatchedLetter(clicked);
+    phrase.showMatchedLetter(clicked.textContent);
   });
 });
