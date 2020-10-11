@@ -36,7 +36,6 @@ class Phrase {
    */
   showMatchedLetter(letter) {
     let matchingLetter = document.getElementsByClassName(letter);
-    // if there are two of the same letter, the second one does not "show"
     for (let i = 0; i < matchingLetter.length; i++) {
       matchingLetter[i].classList.remove("hide");
       matchingLetter[i].classList.add("show");

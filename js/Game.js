@@ -67,8 +67,12 @@ class Game {
    */
   removeLife() {
     this.missed += 1;
-    let lives = document.querySelectorAll('img [src="images/liveHeart.png"]');
-    lives.src = "images/lostHeart.png";
+    let lives = document.querySelector('#scoreboard > ol').children;
+    for(let i = 0; i < this.missed; i++) {
+      if (this.missed > 0) {
+        lives[i].innerHTML = `<img src='images/lostHeart.png' alt='Heart lost' width='30' height='35'>`
+      }
+    }
     if (this.missed === 5) {
       this.gameOver(false);
     }
@@ -84,14 +88,17 @@ class Game {
    * @param {boolean} gameWon - Whether or not the user won the game
    */
   gameOver(gameWon) {
+    /* Uncaught TypeError: can't assign to property "innerHTML" on "block": not an object */
     let gameOverMessage = (document.getElementById(
       "game-over-message"
-    ).style.display = "block");
+    ));
     if (gameWon) {
-      gameOverMessage.innerHTML = `Way to go! You won the game!`;
+      gameOverMessage.style.display = 'block'
+      gameOverMessage.textContent = `<h2 Way to go! You won the game!</h2>`;
       document.getElementById("overlay").className = "Won";
     } else {
-      gameOverMessage.innerHTML = `Bummer! You did not guess correctly`;
+      gameOverMessage.style.display = 'block'
+      gameOverMessage.textContent = `<h2 Bummer! You did not guess correctly</h2>`;
       document.getElementById("overlay").className = "Lost";
     }
   }
