@@ -44,7 +44,32 @@ class Game {
     this.activePhrase.addPhraseToDisplay();
   }
 
-  handleInteraction() {}
+  /**
+  * Handles onscreen keyboard button clicks
+  * @param (HTMLButtonElement) button - The clicked button element
+  */
+  handleInteraction(button) {
+    //Disable the selected letter’s onscreen keyboard button.
+    console.log(button);
+    button.disabled = true;
+    /* 
+    If the phrase includes the guessed letter, add the `chosen` CSS class to the selected
+    letter's keyboard button, call the `showMatchedLetter()` method on the phrase, and then
+    call the `checkForWin()` method. If the player has won the game, also call the
+    `gameOver()` method.
+    */
+    if(this.activePhrase.checkLetter(button.textContent)) {
+      button.className = 'chosen';
+      this.activePhrase.showMatchedLetter()
+      this.checkForWin();
+      if (this.checkForWin()) {
+        this.gameOver(true);
+      }
+    } else {
+      button.className = 'wrong';
+      this.removeLife();
+    }
+  };
 
   /**
     * Checks for winning move
@@ -88,18 +113,19 @@ class Game {
    * @param {boolean} gameWon - Whether or not the user won the game
    */
   gameOver(gameWon) {
-    /* Uncaught TypeError: can't assign to property "innerHTML" on "block": not an object */
     let gameOverMessage = (document.getElementById(
       "game-over-message"
     ));
     if (gameWon) {
+      document.getElementById("overlay").style.display = "block";
+      document.getElementById("overlay").className = "win";
       gameOverMessage.style.display = 'block'
-      gameOverMessage.textContent = `<h2 Way to go! You won the game!</h2>`;
-      document.getElementById("overlay").className = "Won";
+      gameOverMessage.textContent = `Way to go! You won the game!`;
     } else {
+      document.getElementById("overlay").style.display = "block";
+      document.getElementById("overlay").className = "lose";
       gameOverMessage.style.display = 'block'
-      gameOverMessage.textContent = `<h2 Bummer! You did not guess correctly</h2>`;
-      document.getElementById("overlay").className = "Lost";
+      gameOverMessage.textContent = `Bummer! You did not guess correctly. Try again!`;
     }
   }
 }
