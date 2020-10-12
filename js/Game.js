@@ -16,11 +16,17 @@ class Game {
 
   createPhrases() {
     const phrases = [
-      new Phrase("Stevie W"),
-      new Phrase("Jimi H"),
-      new Phrase("Sam C"),
-      new Phrase("Kendrick L"),
-      new Phrase("Ahmad J"),
+      new Phrase("Mario"),
+      new Phrase("Kirby"),
+      new Phrase("Little mac"),
+      new Phrase("Ganondorf"),
+      new Phrase("Zelda"),
+      new Phrase('Isabele'), 
+      new Phrase('Snake'), 
+      new Phrase('Pac man'), 
+      new Phrase('Ryu'),
+      new Phrase('Bowser'), 
+      new Phrase('Donkey kong')
     ];
     return phrases;
   }
@@ -50,7 +56,6 @@ class Game {
   */
   handleInteraction(button) {
     //Disable the selected letter’s onscreen keyboard button.
-    console.log(button);
     button.disabled = true;
     if(this.activePhrase.checkLetter(button.textContent)) {
       button.className = 'chosen';
