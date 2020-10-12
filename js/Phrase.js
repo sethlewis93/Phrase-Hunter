@@ -9,11 +9,11 @@ class Phrase {
   }
 
   addPhraseToDisplay() {
-    const phraseDiv = document.getElementById("phrase");
+    const phraseList = document.getElementById("phrase").firstElementChild;
     for (let character of this.parsedPhrase) {
       character !== " "
-        ? (phraseDiv.innerHTML += `<li class = 'hide letter ${character}'>${character}</li>`)
-        : (phraseDiv.innerHTML += `<li class = 'space'></li>`);
+        ? (phraseList.innerHTML += `<li class = 'hide letter ${character}'>${character}</li>`)
+        : (phraseList.innerHTML += `<li class = 'space'></li>`);
     }
   }
 

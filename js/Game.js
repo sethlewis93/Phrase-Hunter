@@ -52,12 +52,6 @@ class Game {
     //Disable the selected letter’s onscreen keyboard button.
     console.log(button);
     button.disabled = true;
-    /* 
-    If the phrase includes the guessed letter, add the `chosen` CSS class to the selected
-    letter's keyboard button, call the `showMatchedLetter()` method on the phrase, and then
-    call the `checkForWin()` method. If the player has won the game, also call the
-    `gameOver()` method.
-    */
     if(this.activePhrase.checkLetter(button.textContent)) {
       button.className = 'chosen';
       this.activePhrase.showMatchedLetter()
@@ -91,7 +85,7 @@ class Game {
    * Checks if player has remaining lives and ends game if player is out
    */
   removeLife() {
-    this.missed += 1;
+    this.missed++;
     let lives = document.querySelector('#scoreboard > ol').children;
     for(let i = 0; i < this.missed; i++) {
       if (this.missed > 0) {
@@ -102,11 +96,6 @@ class Game {
       this.gameOver(false);
     }
   }
-
-  /**
-   * Displays game over message
-   * @param {boolean} gameWon - Whether or not the user won the game
-   */
 
   /**
    * Displays game over message
@@ -127,5 +116,22 @@ class Game {
       gameOverMessage.style.display = 'block'
       gameOverMessage.textContent = `Bummer! You did not guess correctly. Try again!`;
     }
+
+    // Resetting the game
+
+    document.querySelector("#phrase > ul").textContent = '';
+
+    const keys = document.querySelectorAll("#qwerty div button");
+    for(let key of keys) {
+      key.className = 'key';
+      key.disabled = false;
+    }
+
+    const lives = document.querySelector('#scoreboard > ol').children;
+    for(let life of lives) {
+      life.innerHTML = `<img src='images/liveHeart.png' alt='Heart' width='30' height='35'>`
+      this.missed = 0;
+    }
+    
   }
 }
