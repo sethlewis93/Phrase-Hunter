@@ -21,12 +21,12 @@ class Game {
       new Phrase("Little mac"),
       new Phrase("Ganondorf"),
       new Phrase("Zelda"),
-      new Phrase('Isabele'), 
-      new Phrase('Snake'), 
-      new Phrase('Pac man'), 
-      new Phrase('Ryu'),
-      new Phrase('Bowser'), 
-      new Phrase('Donkey kong')
+      new Phrase("Isabele"),
+      new Phrase("Snake"),
+      new Phrase("Pac man"),
+      new Phrase("Ryu"),
+      new Phrase("Bowser"),
+      new Phrase("Donkey kong"),
     ];
     return phrases;
   }
@@ -51,24 +51,24 @@ class Game {
   }
 
   /**
-  * Handles onscreen keyboard button clicks
-  * @param (HTMLButtonElement) button - The clicked button element
-  */
+   * Handles onscreen keyboard button clicks
+   * @param (HTMLButtonElement) button - The clicked button element
+   */
   handleInteraction(button) {
     //Disable the selected letter’s onscreen keyboard button.
     button.disabled = true;
-    if(this.activePhrase.checkLetter(button.textContent)) {
-      button.className = 'chosen';
-      this.activePhrase.showMatchedLetter()
+    if (this.activePhrase.checkLetter(button.textContent)) {
+      button.className = "chosen";
+      this.activePhrase.showMatchedLetter();
       this.checkForWin();
       if (this.checkForWin()) {
         this.gameOver(true);
       }
     } else {
-      button.className = 'wrong';
+      button.className = "wrong";
       this.removeLife();
     }
-  };
+  }
 
   /**
     * Checks for winning move
@@ -91,10 +91,12 @@ class Game {
    */
   removeLife() {
     this.missed++;
-    let lives = document.querySelector('#scoreboard > ol').children;
-    for(let i = 0; i < this.missed; i++) {
+    let lives = document.querySelector("#scoreboard > ol").children;
+    for (let i = 0; i < this.missed; i++) {
       if (this.missed > 0) {
-        lives[i].innerHTML = `<img src='images/lostHeart.png' alt='Heart lost' width='30' height='35'>`
+        lives[
+          i
+        ].innerHTML = `<img src='images/lostHeart.png' alt='Heart lost' width='30' height='35'>`;
       }
     }
     if (this.missed === 5) {
@@ -107,36 +109,33 @@ class Game {
    * @param {boolean} gameWon - Whether or not the user won the game
    */
   gameOver(gameWon) {
-    let gameOverMessage = (document.getElementById(
-      "game-over-message"
-    ));
+    let gameOverMessage = document.getElementById("game-over-message");
     if (gameWon) {
       document.getElementById("overlay").style.display = "block";
       document.getElementById("overlay").className = "win";
-      gameOverMessage.style.display = 'block'
+      gameOverMessage.style.display = "block";
       gameOverMessage.textContent = `Way to go! You won the game!`;
     } else {
       document.getElementById("overlay").style.display = "block";
       document.getElementById("overlay").className = "lose";
-      gameOverMessage.style.display = 'block'
+      gameOverMessage.style.display = "block";
       gameOverMessage.textContent = `Bummer! You did not guess correctly. Try again!`;
     }
 
     // Resetting the game
 
-    document.querySelector("#phrase > ul").textContent = '';
+    document.querySelector("#phrase > ul").textContent = "";
 
     const keys = document.querySelectorAll("#qwerty div button");
-    for(let key of keys) {
-      key.className = 'key';
+    for (let key of keys) {
+      key.className = "key";
       key.disabled = false;
     }
 
-    const lives = document.querySelector('#scoreboard > ol').children;
-    for(let life of lives) {
-      life.innerHTML = `<img src='images/liveHeart.png' alt='Heart' width='30' height='35'>`
+    const lives = document.querySelector("#scoreboard > ol").children;
+    for (let life of lives) {
+      life.innerHTML = `<img src='images/liveHeart.png' alt='Heart' width='30' height='35'>`;
       this.missed = 0;
     }
-    
   }
 }
