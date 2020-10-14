@@ -72,20 +72,6 @@ class Game {
   }
 
   /**
-    * Checks for winning move
-    * @return {boolean} True if game has been won, false if game wasn't
-    won
-    */
-  checkForWin() {
-    let hiddenLetters = document.getElementsByClassName("hide");
-    if (hiddenLetters.length === 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  /**
    * Increases the value of the missed property
    * Removes a life from the scoreboard
    * Checks if player has remaining lives and ends game if player is out
@@ -102,6 +88,20 @@ class Game {
     }
     if (this.missed === 5) {
       this.gameOver(false);
+    }
+  }
+
+  /**
+    * Checks for winning move
+    * @return {boolean} True if game has been won, false if game wasn't
+    won
+    */
+  checkForWin() {
+    let hiddenLetters = document.getElementsByClassName("hide");
+    if (hiddenLetters.length === 0) {
+      return true;
+    } else {
+      return false;
     }
   }
 
