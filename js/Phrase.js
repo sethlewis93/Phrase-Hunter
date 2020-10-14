@@ -23,11 +23,7 @@ class Phrase {
    */
 
   checkLetter(letter) {
-    if (this.phrase.includes(letter)) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.phrase.includes(letter);
   }
 
   /**

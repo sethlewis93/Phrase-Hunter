@@ -15,19 +15,20 @@ class Game {
    */
 
   createPhrases() {
-    const phrases = [
-      new Phrase("Mario"),
-      new Phrase("Kirby"),
-      new Phrase("Little mac"),
-      new Phrase("Ganondorf"),
-      new Phrase("Zelda"),
-      new Phrase("Isabele"),
-      new Phrase("Snake"),
-      new Phrase("Pac man"),
-      new Phrase("Ryu"),
-      new Phrase("Bowser"),
-      new Phrase("Donkey kong"),
+    const characters = [
+      "Mario",
+      "Kirby",
+      "Little mac",
+      "Ganondorf",
+      "Zelda",
+      "Isabele",
+      "Snake",
+      "Pac man",
+      "Ryu",
+      "Bowser",
+      "Donkey Kong",
     ];
+    const phrases = characters.map((character) => new Phrase(character));
     return phrases;
   }
 
