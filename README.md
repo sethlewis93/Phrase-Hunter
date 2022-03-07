@@ -1,7 +1,7 @@
 # PHRASE HUNTER
 
 ## About
- Object-Oriented Programming (OOP) techniques. browser-based version of the game 'Phrase Hunter' (or 'Word Hunter') whereby the user guesses the phrase that is hidden on the screen based on the game theme and the number of hidden characters presented.
+Browser-based version of the game 'Phrase Hunter' (or 'Word Hunter') whereby the user guesses the phrase that is hidden on the screen based on the game theme and the number of hidden characters presented. Created with HTML, CSS, ES6.
 
 ### Phrase.js
 The Phrase.js file handles displaying the letter placeholders, checks to see if a selected letter matches a letter in the phrase, and reveals letters on the board matching the player's selection. This is achieved within the addPhrasetoDisplay(), checkLetter(), and showMatchLetter(), respectively.
