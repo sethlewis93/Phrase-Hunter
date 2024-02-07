@@ -6,7 +6,7 @@ document.getElementById("btn__reset").addEventListener("click", () => {
   game.startGame();
 });
 
-// Target the keys of the keyboard & invalidate clicks inside whitespace
+// Target the keys of the *viewport* keyboard & invalidate clicks inside whitespace
 document.getElementById("qwerty").addEventListener("click", (e) => {
   if (e.target.className === "key") {
     game.activePhrase.showMatchedLetter(e.target.textContent);

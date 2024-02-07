@@ -2,10 +2,86 @@
  * Project 4 - OOP Game App
  * Game.js */
 
+const superSmashBroCharacters = [
+  "Mario",
+  "Luigi",
+  "Peach",
+  "Bowser",
+  "Yoshi",
+  "Rosalina & Luma",
+  "Donkey Kong",
+  "Diddy Kong",
+  "Link",
+  "Zelda",
+  "Sheik",
+  "Toon Link",
+  "Samus",
+  "Zero Suit Samus",
+  "Pit",
+  "Palutena",
+  "Marth",
+  "Ike",
+  "Robin",
+  "Kirby",
+  "King Dedede",
+  "Meta Knight",
+  "Little Mac",
+  "Fox",
+  "Pikachu",
+  "Pokemon Trainer",
+  "Lucario",
+  "Greninja",
+  "Captain Falcon",
+  "Villager",
+  "Olimar",
+  "Wii Fit Trainer",
+  "Shulk",
+  "Pac-Man",
+  "Mega Man",
+  "Sonic",
+  "Mii Fighters",
+  "Ness",
+  "Falco",
+  "Wario",
+  "Lucina",
+  "Dark Pit",
+  "Dr. Mario",
+  "R.O.B.",
+  "Ganondorf",
+  "Mr. Game & Watch",
+  "Bowser Jr.",
+  "Duck Hunt",
+  "Jigglypuff",
+  "Mewtwo",
+  "Lucas",
+  "Roy",
+  "Ryu",
+  "Cloud",
+  "Corrin",
+  "Bayonetta",
+  "Snake",
+  "Ice Climbers",
+  "Inkling",
+  "Daisy",
+  "King K. Rool",
+  "Dark Samus",
+  "Young Link",
+  "Simon",
+  "Richter",
+  "Joker",
+  "Pikachu",
+  "Wolf",
+  "Isabelle",
+  "Incineroar",
+  "Piranha plant",
+  "Ken",
+  "Hero",
+];
+
 class Game {
   constructor() {
     this.missed = 0;
-    this.phrases = this.createPhrases();
+    this.phrases = this.createPhrases(superSmashBroCharacters);
     this.activePhrase = null;
   }
 
@@ -14,82 +90,7 @@ class Game {
    * @return {array} An array of phrases that could be used in the game
    */
 
-  createPhrases() {
-    const characters = [
-      "Mario",
-      "Luigi",
-      "Peach",
-      "Bowser",
-      "Yoshi",
-      "Rosalina & Luma",
-      "Donkey Kong",
-      "Diddy Kong",
-      "Link",
-      "Zelda",
-      "Sheik",
-      "Toon Link",
-      "Samus",
-      "Zero Suit Samus",
-      "Pit",
-      "Palutena",
-      "Marth",
-      "Ike",
-      "Robin",
-      "Kirby",
-      "King Dedede",
-      "Meta Knight",
-      "Little Mac",
-      "Fox",
-      "Pikachu",
-      "Pokemon Trainer",
-      "Lucario",
-      "Greninja",
-      "Captain Falcon",
-      "Villager",
-      "Olimar",
-      "Wii Fit Trainer",
-      "Shulk",
-      "Pac-Man",
-      "Mega Man",
-      "Sonic",
-      "Mii Fighters",
-      "Ness",
-      "Falco",
-      "Wario",
-      "Lucina",
-      "Dark Pit",
-      "Dr. Mario",
-      "R.O.B.",
-      "Ganondorf",
-      "Mr. Game & Watch",
-      "Bowser Jr.",
-      "Duck Hunt",
-      "Jigglypuff",
-      "Mewtwo",
-      "Lucas",
-      "Roy",
-      "Ryu",
-      "Cloud",
-      "Corrin",
-      "Bayonetta",
-      "Snake",
-      "Ice Climbers",
-      "Inkling",
-      "Daisy",
-      "King K. Rool",
-      "Dark Samus",
-      "Young Link",
-      "Simon",
-      "Richter",
-      "Joker",
-      "Pikachu",
-      "Wolf",
-      "Isabelle",
-      "Incineroar",
-      "Piranha plant",
-      "Ken",
-      "Hero"
-    ];
+  createPhrases(characters) {
     const phrases = characters.map((character) => new Phrase(character));
     return phrases;
   }
@@ -177,7 +178,7 @@ class Game {
       document.getElementById("overlay").style.display = "block";
       document.getElementById("overlay").className = "win";
       gameOverMessage.style.display = "block";
-      gameOverMessage.textContent = `Way to go! You won the game!`;
+      gameOverMessage.textContent = `You guessed correctly - way to go!`;
     } else {
       document.getElementById("overlay").style.display = "block";
       document.getElementById("overlay").className = "lose";
